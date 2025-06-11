@@ -105,7 +105,7 @@
                             <p class="large text-muted"> A class of 2032, multi-instrumentalist in the making! Currently learning Piano,Violin and Ukulele. Passionate about community and friendship with a curious mind and a love for science and other arts.</p>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="assets/img/team/Chloe.jpg" alt="..." />
@@ -265,10 +265,30 @@
             </div>
         </footer>
 
+        <div class="youtube-container" id="floatingYouTube">
+  <iframe
+    width="320"
+    height="180"
+    src="https://www.youtube.com/embed/5qMFPo_6uGw?si=h-p3dOgaIdvk_lFb?autoplay=1&mute=1""
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+  <button class="close-btn" onclick="closeYouTube()">✖</button>
+</div>
+
+
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+          function closeYouTube() {
+            document.getElementById("floatingYouTube").style.display = "none";
+          }
+        </script>
 
     </body>
 </html>
