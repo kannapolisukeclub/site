@@ -10967,7 +10967,7 @@ header.masthead {
   background-size: cover;
   background-position: 0 0;
 
-  animation: scrollBackground 100s linear infinite; /* Adjust timing as needed */
+  animation: scrollBackground 50s linear infinite; /* Adjust timing as needed */
 }
 
 /* Keyframes for horizontal scrolling */
