@@ -10942,6 +10942,7 @@ p {
     margin-right: 0;
   }
 }
+/*
 header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
@@ -10953,6 +10954,34 @@ header.masthead {
   background-position: center center;
   background-size: cover;
 }
+*/
+
+header.masthead {
+  padding-top: 10.5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: #fff;
+
+  background-image: url("../assets/img/header-bg.png");
+  background-repeat: repeat-x; /* Allows seamless horizontal scrolling */
+  background-size: cover;
+  background-position: 0 0;
+
+  animation: scrollBackground 100s linear infinite; /* Adjust timing as needed */
+}
+
+/* Keyframes for horizontal scrolling */
+@keyframes scrollBackground {
+  0% {
+    background-position: 1000px 0; /* Start far to the right */
+  }
+  100% {
+    background-position: 0 0; /* Move to the left */
+  }
+}
+
+
+
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
   font-style: italic;
