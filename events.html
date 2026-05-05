@@ -558,6 +558,305 @@
                 font-size: 1.8rem;
             }
         }
+
+        /* Events List Styles */
+        .events-list-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .events-month-group {
+            margin-bottom: 50px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .events-month-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ffc800;
+        }
+
+        .events-month-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #212529;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #e9ecef;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            animation: fadeIn 0.5s ease-out;
+            cursor: pointer;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .event-card {
+                flex-direction: column;
+                padding: 18px;
+                gap: 12px;
+            }
+        }
+
+        .event-card:hover {
+            box-shadow: 0 8px 24px rgba(255, 200, 0, 0.15);
+            transform: translateY(-4px);
+            border-left-color: #ffc800;
+        }
+
+        .event-card.next-event {
+            border-left-color: #ffc800;
+            background: linear-gradient(135deg, rgba(255, 200, 0, 0.05) 0%, rgba(255, 183, 0, 0.02) 100%);
+            box-shadow: 0 4px 16px rgba(255, 200, 0, 0.2);
+        }
+
+        .event-card.next-event .event-badge-next {
+            display: inline-block;
+        }
+
+        .event-badge-next {
+            display: none;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ffc800;
+            color: #212529;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .event-badge-next {
+                position: static;
+                display: inline-block !important;
+            }
+        }
+
+        .event-date-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 90px;
+            padding: 16px 12px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 10px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .event-date-box {
+                width: 100%;
+                min-width: unset;
+            }
+        }
+
+        .event-day {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0d47a1;
+            line-height: 1;
+        }
+
+        .event-month-year {
+            font-size: 0.85rem;
+            color: #0d47a1;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        .event-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .event-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #212529;
+            margin: 0 0 8px 0;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .event-title-icon {
+            font-size: 1.3rem;
+            color: #ffc800;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #495057;
+        }
+
+        .event-meta-item i {
+            color: #ffc800;
+            font-size: 1rem;
+            width: 18px;
+            text-align: center;
+        }
+
+        .event-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .event-btn-small {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .event-btn-calendar {
+            background: #ffc800;
+            color: #212529;
+        }
+
+        .event-btn-calendar:hover {
+            background: #ffb700;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255, 200, 0, 0.3);
+        }
+
+        .event-btn-detail {
+            background: transparent;
+            color: #0d6efd;
+            border: 1px solid #0d6efd;
+        }
+
+        .event-btn-detail:hover {
+            background: #0d6efd;
+            color: white;
+        }
+
+        /* Empty State */
+        .no-events-message {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .empty-state-icon {
+            font-size: 5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            color: #212529;
+            margin: 0;
+        }
+
+        .empty-state p {
+            color: #6c757d;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* View All Events Link */
+        .view-all-events-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: #f8f9fa;
+            color: #0d6efd;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid #0d6efd;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .view-all-events-link:hover {
+            background: #0d6efd;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .events-month-header {
+                margin-bottom: 18px;
+            }
+
+            .events-month-header h3 {
+                font-size: 1.25rem;
+            }
+
+            .event-title {
+                font-size: 1.1rem;
+            }
+
+            .event-meta-item {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body id="page-top">
@@ -598,7 +897,7 @@
                 <div class="carousel-slide active" style="background-image: url('https://res.cloudinary.com/dng6ag1ua/image/upload/v1777918971/hulaGirls_e9jmuq.jpg?w=1200&h=500&fit=crop');">
                     <div class="carousel-overlay"></div>
                     <div class="carousel-content">
-                        <div class="event-badge">Upcoming Event</div>
+                        <div class="event-badge">Featured Upcoming Event</div>
                         <h2 class="event-title-large">ALOHA HULA PARTY</h2>
                         <div class="event-meta-large">
                             <div class="meta-item">
@@ -625,7 +924,7 @@
                 <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1200&h=500&fit=crop');">
                     <div class="carousel-overlay"></div>
                     <div class="carousel-content">
-                        <div class="event-badge">Upcoming Event</div>
+                        <div class="event-badge">Featured Upcoming Event</div>
                         <h2 class="event-title-large">Music at the BallPark</h2>
                         <div class="event-meta-large">
                             <div class="meta-item">
@@ -668,31 +967,31 @@
         </div>
     </section>
 
-    <!-- Calendar Section -->
+    <!-- Upcoming Events Section -->
     <section class="calendar-section">
         <div class="container">
             <div class="section-heading">
-                <h2 class="section-heading text-uppercase">Event Calendar</h2>
-                <h3 class="section-subheading text-muted">Stay updated with all our upcoming events, workshops, and performances</h3>
+                <h2 class="section-heading text-uppercase">Upcoming Events</h2>
+                <h3 class="section-subheading text-muted">Join us for jam sessions, workshops, and performances</h3>
             </div>
 
-            <div class="calendar-container">
-               
-                <div id="google-calendar-container">
-                  
-                    <div class="google-calendar-wrapper">
-                        <iframe class="google-calendar-embed" 
-                         src="https://calendar.google.com/calendar/embed?src=b5d4d68af31d8d35a0c7cf0274f24f00f76137480621594b61b21667b46b07fb%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
-                         title="Kannapolis Ukulele Club Calendar">
-                        </iframe>
-                    </div>
-                    
-                    
-                  
+            <div id="events-container" class="events-list-container">
+                <!-- Events will be dynamically loaded here -->
+            </div>
+
+            <div id="no-events-message" class="no-events-message" style="display: none;">
+                <div class="empty-state">
+                    <div class="empty-state-icon">🎶</div>
+                    <h3>No upcoming events</h3>
+                    <p>Check back soon for our next session!</p>
                 </div>
+            </div>
 
-    
-
+            <!-- View All Events Link (for calendar fallback) -->
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://calendar.google.com/calendar/u/0?cid=b5d4d68af31d8d35a0c7cf0274f24f00f76137480621594b61b21667b46b07fb@group.calendar.google.com" target="_blank" class="view-all-events-link">
+                    <i class="fas fa-calendar-alt"></i> View All Events in Google Calendar
+                </a>
             </div>
         </div>
     </section>
@@ -864,6 +1163,361 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    
+    <!-- Events Management Script -->
+    <script src="https://cdn.jsdelivr.net/npm/ical.js@5.0.1/build/ical.min.js"></script>
+    <script>
+    // Google Calendar ID (public calendar)
+    const CALENDAR_ID = 'b5d4d68af31d8d35a0c7cf0274f24f00f76137480621594b61b21667b46b07fb@group.calendar.google.com';
+    const ICAL_FEED_URL = `https://calendar.google.com/calendar/ical/${CALENDAR_ID}/public/basic.ics`;
+    
+    // Fallback events if calendar fetch fails
+    const fallbackEvents = [
+        {
+            id: 1,
+            title: "Weekly Jam Session",
+            date: new Date(2026, 4, 8),
+            startTime: "6:00 PM",
+            endTime: "7:00 PM",
+            location: "Kellswater Bridge Pavilion",
+            type: "🎶 Jam Session",
+            description: "Regular weekly jam session for all skill levels"
+        },
+          {
+            id: 1,
+            title: "Weekly Jam Session",
+            date: new Date(2026, 4, 15),
+            startTime: "6:00 PM",
+            endTime: "7:00 PM",
+            location: "Kellswater Bridge Pavilion",
+            type: "🎶 Jam Session",
+            description: "Regular weekly jam session for all skill levels"
+        },
+          {
+            id: 1,
+            title: "Weekly Jam Session",
+            date: new Date(2026, 4, 22),
+            startTime: "6:00 PM",
+            endTime: "7:00 PM",
+            location: "Kellswater Bridge Pavilion",
+            type: "🎶 Jam Session",
+            description: "Regular weekly jam session for all skill levels"
+        },
+          {
+            id: 1,
+            title: "Weekly Jam Session",
+            date: new Date(2026, 4,29),
+            startTime: "6:00 PM",
+            endTime: "7:00 PM",
+            location: "Kellswater Bridge Pavilion",
+            type: "🎶 Jam Session",
+            description: "Regular weekly jam session for all skill levels"
+        },
+   
+        {
+            id: 2,
+            title: "ALOHA HULA PARTY",
+            date: new Date(2026, 5, 5),
+            startTime: "6:00 PM",
+            endTime: "7:00 PM",
+            location: "Kellswater Bridge Pavilion",
+            type: "🎉 Performance",
+            description: "Experience the spirit of the islands with hula dancing and tropical vibes"
+        }
+    ];
+ 
+    let eventsData = [];
+
+    // Cache key and duration
+    const CACHE_KEY = 'kuc_events_cache';
+    const CACHE_DURATION = 3600000; // 1 hour in milliseconds
+
+    // Parse iCal event to extract details
+    function parseICalEvent(icalEvent) {
+        try {
+            const summary = icalEvent.getFirstPropertyValue('summary') || 'Event';
+            const location = icalEvent.getFirstPropertyValue('location') || '';
+            const description = icalEvent.getFirstPropertyValue('description') || '';
+            const dtstart = icalEvent.getFirstPropertyValue('dtstart');
+            const dtend = icalEvent.getFirstPropertyValue('dtend');
+            
+            if (!dtstart) return null;
+
+            const startDate = new Date(dtstart.toJSDate ? dtstart.toJSDate() : dtstart);
+            const endDate = dtend ? new Date(dtend.toJSDate ? dtend.toJSDate() : dtend) : null;
+
+            // Determine event type based on keywords
+            let type = "🎶 Event";
+            const titleLower = summary.toLowerCase();
+            if (titleLower.includes('jam') || titleLower.includes('session')) {
+                type = "🎶 Jam Session";
+            } else if (titleLower.includes('workshop') || titleLower.includes('lesson')) {
+                type = "🎓 Workshop";
+            } else if (titleLower.includes('perform') || titleLower.includes('concert') || titleLower.includes('show')) {
+                type = "🎤 Performance";
+            }
+
+            // Format times
+            const startTime = formatTime(startDate);
+            const endTime = endDate ? formatTime(endDate) : 'TBD';
+
+            return {
+                id: Math.random().toString(36).substr(2, 9),
+                title: summary,
+                date: startDate,
+                startTime: startTime,
+                endTime: endTime,
+                location: location,
+                type: type,
+                description: description
+            };
+        } catch (e) {
+            console.warn('Error parsing iCal event:', e);
+            return null;
+        }
+    }
+
+    // Format time from Date object
+    function formatTime(date) {
+        if (!date) return 'TBD';
+        return date.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
+    }
+
+    // Format date helper
+    function formatDateShort(date) {
+        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return `${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}`;
+    }
+
+    // Fetch and parse Google Calendar iCal feed
+    async function fetchCalendarEvents() {
+        try {
+            // Use CORS proxy for development/testing, direct fetch for production
+            const proxyUrl = 'https://corsproxy.io/?';
+            const directUrl = ICAL_FEED_URL;
+            
+            const response = await fetch(proxyUrl + targetUrl);
+            
+
+            
+            
+            const icalText = await response.text();
+            const jcalData = ICAL.parse(icalText);
+            const calendar = new ICAL.Calendar(jcalData);
+            
+            // Extract events
+            const events = [];
+            for (const component of calendar.getAllSubcomponents('vevent')) {
+                const event = parseICalEvent(component);
+                if (event) {
+                    events.push(event);
+                }
+            }
+
+            return events.length > 0 ? events : fallbackEvents;
+        } catch (error) {
+            console.warn('Could not fetch calendar events, using fallback:', error);
+            return fallbackEvents;
+        }
+    }
+
+    // Format month header
+    function formatMonthHeader(date) {
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        return `${months[date.getMonth()]} ${date.getFullYear()}`;
+    }
+
+    // Generate Google Calendar link
+    function generateGoogleCalendarLink(event) {
+        const title = encodeURIComponent(event.title);
+        const location = encodeURIComponent(event.location || '');
+        const description = encodeURIComponent(event.description || '');
+        
+        // Format dates for Google Calendar (YYYYMMDDTHHMMSS format)
+        const startDate = event.date;
+        const startDateStr = startDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        
+        const endDate = new Date(event.date);
+        endDate.setHours(endDate.getHours() + 2); // Default 2-hour duration
+        const endDateStr = endDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
+        return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDateStr}/${endDateStr}&location=${location}&details=${description}`;
+    }
+
+    // Get upcoming events (today and future)
+    function getUpcomingEvents() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        return eventsData
+            .filter(event => event.date >= today)
+            .sort((a, b) => a.date - b.date)
+            .slice(0, 10); // Limit to 10 events
+    }
+
+    // Group events by month
+    function groupEventsByMonth(events) {
+        const grouped = {};
+
+        events.forEach(event => {
+            const monthKey = `${event.date.getFullYear()}-${event.date.getMonth()}`;
+            if (!grouped[monthKey]) {
+                grouped[monthKey] = {
+                    monthHeader: formatMonthHeader(event.date),
+                    events: []
+                };
+            }
+            grouped[monthKey].events.push(event);
+        });
+
+        return grouped;
+    }
+
+    // Create event card HTML
+    function createEventCard(event, isNextEvent = false) {
+        const googleCalendarLink = generateGoogleCalendarLink(event);
+        const dateStr = formatDateShort(event.date);
+
+        return `
+            <div class="event-card ${isNextEvent ? 'next-event' : ''}">
+                ${isNextEvent ? '<span class="event-badge-next">NEXT EVENT</span>' : ''}
+                <div class="event-date-box">
+                    <div class="event-day">${event.date.getDate()}</div>
+                    <div class="event-month-year">${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][event.date.getMonth()]} ${event.date.getFullYear().toString().slice(-2)}</div>
+                </div>
+                <div class="event-content">
+                    <h3 class="event-title">
+                        <span class="event-title-icon">${event.type.split(' ')[0]}</span>
+                        ${event.title}
+                    </h3>
+                    <div class="event-meta">
+                        <div class="event-meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>${event.startTime} – ${event.endTime}</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${event.location}</span>
+                        </div>
+                    </div>
+                    <div class="event-actions">
+                        <a href="${googleCalendarLink}" target="_blank" class="event-btn-small event-btn-calendar">
+                            <i class="fas fa-plus"></i> Add to Calendar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Render events
+    async function renderEvents() {
+        const container = document.getElementById('events-container');
+        const noEventsMsg = document.getElementById('no-events-message');
+
+        if (!container) return;
+
+        try {
+            // Fetch events from Google Calendar
+            eventsData = await fetchCalendarEvents();
+        } catch (error) {
+            console.warn('Error fetching events:', error);
+            eventsData = fallbackEvents;
+        }
+
+        const upcomingEvents = getUpcomingEvents();
+
+        if (upcomingEvents.length === 0) {
+            container.style.display = 'none';
+            noEventsMsg.style.display = 'block';
+            return;
+        }
+
+        // Group by month
+        const groupedEvents = groupEventsByMonth(upcomingEvents);
+        let html = '';
+
+        let isFirst = true;
+        Object.keys(groupedEvents).forEach(monthKey => {
+            const group = groupedEvents[monthKey];
+            html += `
+                <div class="events-month-group">
+                    <div class="events-month-header">
+                        <h3>${group.monthHeader}</h3>
+                    </div>
+            `;
+
+            group.events.forEach((event, index) => {
+                html += createEventCard(event, isFirst);
+                isFirst = false;
+            });
+
+            html += '</div>';
+        });
+
+        container.innerHTML = html;
+        container.style.display = 'block';
+        noEventsMsg.style.display = 'none';
+
+        // Cache the rendered HTML
+        cacheEvents(html);
+    }
+
+    // Cache management
+    function cacheEvents(html) {
+        try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
+                timestamp: Date.now(),
+                html: html
+            }));
+        } catch (e) {
+            console.warn('Could not cache events:', e);
+        }
+    }
+
+    function getCachedEvents() {
+        try {
+            const cached = localStorage.getItem(CACHE_KEY);
+            if (!cached) return null;
+
+            const data = JSON.parse(cached);
+            const age = Date.now() - data.timestamp;
+
+            if (age < CACHE_DURATION) {
+                return data.html;
+            }
+            localStorage.removeItem(CACHE_KEY);
+        } catch (e) {
+            console.warn('Could not retrieve cached events:', e);
+        }
+        return null;
+    }
+
+    // Initialize events on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('events-container');
+        const cachedHTML = getCachedEvents();
+
+        if (cachedHTML && container) {
+            container.innerHTML = cachedHTML;
+            container.style.display = 'block';
+        } else {
+            renderEvents(); // This is async, will fetch from calendar
+        }
+    });
+
+    // Force refresh (for development)
+    window.refreshEvents = () => {
+        localStorage.removeItem(CACHE_KEY);
+        renderEvents();
+        console.log('Events refreshed!');
+    };
+    </script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const carousel = document.getElementById('featured-carousel');
