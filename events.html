@@ -1164,166 +1164,18 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     
-    <!-- Events Management Script -->
-    <script src="https://cdn.jsdelivr.net/npm/ical.js@5.0.1/build/ical.min.js"></script>
-    <script>
-    // Google Calendar ID (public calendar)
-    const CALENDAR_ID = 'b5d4d68af31d8d35a0c7cf0274f24f00f76137480621594b61b21667b46b07fb@group.calendar.google.com';
-    const ICAL_FEED_URL = `https://calendar.google.com/calendar/ical/${CALENDAR_ID}/public/basic.ics`;
+    <!-- Events Data -->
+    <script src="js/events-data.js"></script>
     
-    // Fallback events if calendar fetch fails
-    const fallbackEvents = [
-        {
-            id: 1,
-            title: "Weekly Jam Session",
-            date: new Date(2026, 4, 8),
-            startTime: "6:00 PM",
-            endTime: "7:00 PM",
-            location: "Kellswater Bridge Pavilion",
-            type: "🎶 Jam Session",
-            description: "Regular weekly jam session for all skill levels"
-        },
-          {
-            id: 1,
-            title: "Weekly Jam Session",
-            date: new Date(2026, 4, 15),
-            startTime: "6:00 PM",
-            endTime: "7:00 PM",
-            location: "Kellswater Bridge Pavilion",
-            type: "🎶 Jam Session",
-            description: "Regular weekly jam session for all skill levels"
-        },
-          {
-            id: 1,
-            title: "Weekly Jam Session",
-            date: new Date(2026, 4, 22),
-            startTime: "6:00 PM",
-            endTime: "7:00 PM",
-            location: "Kellswater Bridge Pavilion",
-            type: "🎶 Jam Session",
-            description: "Regular weekly jam session for all skill levels"
-        },
-          {
-            id: 1,
-            title: "Weekly Jam Session",
-            date: new Date(2026, 4,29),
-            startTime: "6:00 PM",
-            endTime: "7:00 PM",
-            location: "Kellswater Bridge Pavilion",
-            type: "🎶 Jam Session",
-            description: "Regular weekly jam session for all skill levels"
-        },
-   
-        {
-            id: 2,
-            title: "ALOHA HULA PARTY",
-            date: new Date(2026, 5, 5),
-            startTime: "6:00 PM",
-            endTime: "7:00 PM",
-            location: "Kellswater Bridge Pavilion",
-            type: "🎉 Performance",
-            description: "Experience the spirit of the islands with hula dancing and tropical vibes"
-        }
-    ];
- 
+    <!-- Events Management Script -->
+    <script>
     let eventsData = [];
-
-    // Cache key and duration
-    const CACHE_KEY = 'kuc_events_cache';
-    const CACHE_DURATION = 3600000; // 1 hour in milliseconds
-
-    // Parse iCal event to extract details
-    function parseICalEvent(icalEvent) {
-        try {
-            const summary = icalEvent.getFirstPropertyValue('summary') || 'Event';
-            const location = icalEvent.getFirstPropertyValue('location') || '';
-            const description = icalEvent.getFirstPropertyValue('description') || '';
-            const dtstart = icalEvent.getFirstPropertyValue('dtstart');
-            const dtend = icalEvent.getFirstPropertyValue('dtend');
-            
-            if (!dtstart) return null;
-
-            const startDate = new Date(dtstart.toJSDate ? dtstart.toJSDate() : dtstart);
-            const endDate = dtend ? new Date(dtend.toJSDate ? dtend.toJSDate() : dtend) : null;
-
-            // Determine event type based on keywords
-            let type = "🎶 Event";
-            const titleLower = summary.toLowerCase();
-            if (titleLower.includes('jam') || titleLower.includes('session')) {
-                type = "🎶 Jam Session";
-            } else if (titleLower.includes('workshop') || titleLower.includes('lesson')) {
-                type = "🎓 Workshop";
-            } else if (titleLower.includes('perform') || titleLower.includes('concert') || titleLower.includes('show')) {
-                type = "🎤 Performance";
-            }
-
-            // Format times
-            const startTime = formatTime(startDate);
-            const endTime = endDate ? formatTime(endDate) : 'TBD';
-
-            return {
-                id: Math.random().toString(36).substr(2, 9),
-                title: summary,
-                date: startDate,
-                startTime: startTime,
-                endTime: endTime,
-                location: location,
-                type: type,
-                description: description
-            };
-        } catch (e) {
-            console.warn('Error parsing iCal event:', e);
-            return null;
-        }
-    }
-
-    // Format time from Date object
-    function formatTime(date) {
-        if (!date) return 'TBD';
-        return date.toLocaleTimeString('en-US', {
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true
-        });
-    }
 
     // Format date helper
     function formatDateShort(date) {
         const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         return `${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}`;
-    }
-
-    // Fetch and parse Google Calendar iCal feed
-    async function fetchCalendarEvents() {
-        try {
-            // Use CORS proxy for development/testing, direct fetch for production
-            const proxyUrl = 'https://corsproxy.io/?';
-            const directUrl = ICAL_FEED_URL;
-            
-            const response = await fetch(proxyUrl + targetUrl);
-            
-
-            
-            
-            const icalText = await response.text();
-            const jcalData = ICAL.parse(icalText);
-            const calendar = new ICAL.Calendar(jcalData);
-            
-            // Extract events
-            const events = [];
-            for (const component of calendar.getAllSubcomponents('vevent')) {
-                const event = parseICalEvent(component);
-                if (event) {
-                    events.push(event);
-                }
-            }
-
-            return events.length > 0 ? events : fallbackEvents;
-        } catch (error) {
-            console.warn('Could not fetch calendar events, using fallback:', error);
-            return fallbackEvents;
-        }
     }
 
     // Format month header
@@ -1343,7 +1195,7 @@
         const startDateStr = startDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
         
         const endDate = new Date(event.date);
-        endDate.setHours(endDate.getHours() + 2); // Default 2-hour duration
+        endDate.setHours(endDate.getHours() + 2);
         const endDateStr = endDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 
         return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDateStr}/${endDateStr}&location=${location}&details=${description}`;
@@ -1357,7 +1209,7 @@
         return eventsData
             .filter(event => event.date >= today)
             .sort((a, b) => a.date - b.date)
-            .slice(0, 10); // Limit to 10 events
+            .slice(0, 10);
     }
 
     // Group events by month
@@ -1381,7 +1233,6 @@
     // Create event card HTML
     function createEventCard(event, isNextEvent = false) {
         const googleCalendarLink = generateGoogleCalendarLink(event);
-        const dateStr = formatDateShort(event.date);
 
         return `
             <div class="event-card ${isNextEvent ? 'next-event' : ''}">
@@ -1416,19 +1267,11 @@
     }
 
     // Render events
-    async function renderEvents() {
+    function renderEvents() {
         const container = document.getElementById('events-container');
         const noEventsMsg = document.getElementById('no-events-message');
 
         if (!container) return;
-
-        try {
-            // Fetch events from Google Calendar
-            eventsData = await fetchCalendarEvents();
-        } catch (error) {
-            console.warn('Error fetching events:', error);
-            eventsData = fallbackEvents;
-        }
 
         const upcomingEvents = getUpcomingEvents();
 
@@ -1463,122 +1306,18 @@
         container.innerHTML = html;
         container.style.display = 'block';
         noEventsMsg.style.display = 'none';
-
-        // Cache the rendered HTML
-        cacheEvents(html);
-    }
-
-    // Cache management
-    function cacheEvents(html) {
-        try {
-            localStorage.setItem(CACHE_KEY, JSON.stringify({
-                timestamp: Date.now(),
-                html: html
-            }));
-        } catch (e) {
-            console.warn('Could not cache events:', e);
-        }
-    }
-
-    function getCachedEvents() {
-        try {
-            const cached = localStorage.getItem(CACHE_KEY);
-            if (!cached) return null;
-
-            const data = JSON.parse(cached);
-            const age = Date.now() - data.timestamp;
-
-            if (age < CACHE_DURATION) {
-                return data.html;
-            }
-            localStorage.removeItem(CACHE_KEY);
-        } catch (e) {
-            console.warn('Could not retrieve cached events:', e);
-        }
-        return null;
     }
 
     // Initialize events on page load
     document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('events-container');
-        const cachedHTML = getCachedEvents();
-
-        if (cachedHTML && container) {
-            container.innerHTML = cachedHTML;
-            container.style.display = 'block';
-        } else {
-            renderEvents(); // This is async, will fetch from calendar
-        }
-    });
-
-    // Force refresh (for development)
-    window.refreshEvents = () => {
-        localStorage.removeItem(CACHE_KEY);
-        renderEvents();
-        console.log('Events refreshed!');
-    };
-    </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const carousel = document.getElementById('featured-carousel');
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.indicator');
-        const nextBtn = document.getElementById('carousel-next');
-        const prevBtn = document.getElementById('carousel-prev');
+        // Convert fallbackEvents dates from Date objects
+        eventsData = fallbackEvents.map(event => ({
+            ...event,
+            date: typeof event.date === 'string' ? new Date(event.date) : event.date
+        }));
         
-        let currentIndex = 0;
-        let slideInterval;
-
-        function showSlide(index) {
-            // Remove active class from current slide and dot
-            slides[currentIndex].classList.remove('active');
-            dots[currentIndex].classList.remove('active');
-            
-            // Set new index (looping logic)
-            currentIndex = (index + slides.length) % slides.length;
-            
-            // Add active class to new slide and dot
-            slides[currentIndex].classList.add('active');
-            dots[currentIndex].classList.add('active');
-        }
-
-        function startAutoPlay() {
-            stopAutoPlay(); // Clear any existing timers
-            slideInterval = setInterval(() => {
-                showSlide(currentIndex + 1);
-            }, 5000); // Change slide every 5 seconds
-        }
-
-        function stopAutoPlay() {
-            clearInterval(slideInterval);
-        }
-
-        // Click Events
-        nextBtn.addEventListener('click', () => {
-            showSlide(currentIndex + 1);
-            startAutoPlay(); // Reset timer on manual click
-        });
-
-        prevBtn.addEventListener('click', () => {
-            showSlide(currentIndex - 1);
-            startAutoPlay();
-        });
-
-        // Dot Events
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                showSlide(i);
-                startAutoPlay();
-            });
-        });
-
-        // Pause on Hover
-        carousel.addEventListener('mouseenter', stopAutoPlay);
-        carousel.addEventListener('mouseleave', startAutoPlay);
-
-        // Start the engine
-        startAutoPlay();
+        renderEvents();
     });
-</script>
+    </script>
 </body>
 </html>
