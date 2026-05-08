@@ -18,6 +18,54 @@
 
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            /* Quick Info Section */
+            .quick-info {
+                background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+                color: white;
+                padding: 60px 0;
+            }
+
+            .info-card {
+                background: rgba(255, 200, 0, 0.1);
+                border: 1px solid rgba(255, 200, 0, 0.3);
+                border-radius: 12px;
+                padding: 30px;
+                margin-bottom: 20px;
+                transition: all 0.3s ease;
+            }
+
+            @media (max-width: 768px) {
+                .info-card {
+                    padding: 20px;
+                }
+            }
+
+            .info-card:hover {
+                background: rgba(255, 200, 0, 0.15);
+                border-color: rgba(255, 200, 0, 0.5);
+                transform: translateX(10px);
+            }
+
+            .info-icon {
+                font-size: 2rem;
+                color: #ffc800;
+                margin-bottom: 15px;
+            }
+
+            .info-title {
+                font-size: 1.3rem;
+                font-weight: 700;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+
+            .info-text {
+                font-size: 1rem;
+                line-height: 1.6;
+                opacity: 0.95;
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -260,18 +308,71 @@
                 </div>
             </div>
         </div>-->
-        <!-- Contact-->
-        <section class="page-section" id="contact">
+        <!-- Quick Info Section -->
+        <section class="quick-info" id="contact">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-
-
-                    <h3 class="section-subheading text-center text-white mb-3"> <i class="fa-solid fa-map-location-dot" style="color: #ffffff;"></i> 3033 Keady Mill Loop, Kannapolis, NC 28081</h3>
-                    <h3 class="section-subheading text-center text-white mb-3"> <i class="fa-regular fa-envelope" style="color: #ffffff;"></i> 	info@ukeclub.org </h3>
-                    <h3 class="section-subheading text-center text-white mb-3">   <i class="fa-solid fa-phone" style="color: #ffffff;"></i>  470-394-7932</h3>
+                <div class="section-heading" style="color: white; margin-bottom: 40px;">
+                    <h2 class="section-heading text-uppercase" style="color: white;">First Time Visiting?</h2>
+                    <h3 class="section-subheading" style="color: rgba(255,255,255,0.8);">Everything you need to know </h3>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <div class="info-title">What to Bring</div>
+                            <div class="info-text">
+                                <ul style="text-align: left; margin: 0; padding-left: 20px;">
+                                    <li>Your ukulele (or other instrument)</li>
+                                    <li>Your positive energy!</li>
+                                    <li>Please fill out parent consent forms for social media <a href="consent.html" style="color: #ffc800; text-decoration: underline;">here</a></li>
+                                    <li>Expertise (optional), our community is built on practice, not perfection</li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-location-dot"></i>
+                            </div>
+                            <div class="info-title">Location </div>
+                            <div class="info-text">
+                                <p>📍 <strong>3033 Keady Mill Loop, Kannapolis, NC 28081</strong></p>
+                                <p>Pavillion in Kellswater Bridge Community </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-cloud-sun"></i>
+                            </div>
+                            <div class="info-title">Indoor/ Outdoor</div>
+                            <div class="info-text">
+                                <p>We currently host  these events  <strong> outdoors</strong>  and depending on the  weather. Check the calendar for other event's location details.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="info-title">Questions?</div>
+                            <div class="info-text">
+                                <p>Reach out to us anytime:</p>
+                                <p style="margin: 10px 0;">
+                                    <i class="fas fa-phone"></i> <strong>470-394-7932</strong><br>
+                                    <i class="fas fa-envelope"></i> <strong>info@ukeclub.org</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- Footer-->
