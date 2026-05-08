@@ -42,6 +42,23 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead">
+            <!-- Masthead Carousel Background -->
+            <div class="masthead-carousel" id="masthead-carousel">
+                <div class="masthead-slide active" style="background-image: url('assets/img/header-bg.png');"></div>
+                <div class="masthead-slide" style="background-image: url('assets/img/perfomance.JPG');"></div>
+                <div class="masthead-slide" style="background-image: url('assets/img/Leadership.PNG');"></div>
+                <div class="masthead-slide" style="background-image: url('assets/img/workshop.JPG');"></div>
+            </div>
+            
+            <!-- Carousel Indicators -->
+            <div class="masthead-carousel-controls" id="masthead-indicators">
+                <span class="masthead-indicator active" data-slide="0"></span>
+                <span class="masthead-indicator" data-slide="1"></span>
+                <span class="masthead-indicator" data-slide="2"></span>
+                <span class="masthead-indicator" data-slide="3"></span>
+            </div>
+            
+            <!-- Content -->
             <div class="container">
                 <div class="masthead-subheading">Welcome To Our Club!</div>
                 <div class="masthead-heading text-uppercase">strum. connect. grow. lead.</div>
@@ -281,29 +298,53 @@
             </div>
         </footer>
 
-        <div class="youtube-container" id="floatingYouTube">
-  <iframe
-    width="30"
-    height="15"
-    src="https://www.youtube.com/embed/5qMFPo_6uGw?si=h-p3dOgaIdvk_lFb"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>
-  <button class="close-btn" onclick="closeYouTube()">✖</button>
-</div>
-
-
-
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        
+        <!-- Masthead Carousel Script -->
         <script>
-          function closeYouTube() {
-            document.getElementById("floatingYouTube").style.display = "none";
+          // Suppress Font Awesome deprecation warning
+          if (window.console && window.console.warn) {
+            const originalWarn = window.console.warn;
+            window.console.warn = function(...args) {
+              if (typeof args[0] === 'string' && args[0].includes('Components')) {
+                return;
+              }
+              originalWarn.apply(console, args);
+            };
           }
+
+          // Masthead Carousel Functionality
+          let currentSlide = 0;
+          const slides = document.querySelectorAll('.masthead-slide');
+          const indicators = document.querySelectorAll('.masthead-indicator');
+          const totalSlides = slides.length;
+
+          function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+
+            slides[n].classList.add('active');
+            indicators[n].classList.add('active');
+          }
+
+          function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+          }
+
+          // Auto-advance carousel every 5 seconds
+          setInterval(nextSlide,8000);
+
+          // Indicator click functionality
+          indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+              currentSlide = index;
+              showSlide(currentSlide);
+            });
+          });
         </script>
 
     </body>
