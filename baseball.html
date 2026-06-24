@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Music at the Ballpark - Kannapolis Ukulele Club" />
+    <meta name="author" content="" />
+    <title>Music at the Ballpark - Kannapolis Ukulele Club</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons -->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        /* Baseball Event Page Specific Styles */
+        .baseball-hero {
+            background: linear-gradient(135deg, #ffc800 0%, #ffb700 100%);
+            color: #212529;
+            padding: 80px 0 60px;
+            margin-top: 56px;
+            text-align: center;
+        }
+
+        .baseball-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #212529;
+        }
+
+        .baseball-hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 0;
+            font-style: italic;
+            color: #212529;
+        }
+
+        @media (max-width: 768px) {
+            .baseball-hero h1 {
+                font-size: 1.8rem;
+                padding: 0 15px;
+            }
+            .baseball-hero {
+                padding: 60px 0 40px;
+            }
+        }
+
+        /* Event Details Section */
+        .event-details-section {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .event-details-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .event-details-container {
+                padding: 25px;
+            }
+        }
+
+        .event-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #ffc800;
+        }
+
+        .info-item-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .info-item-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #212529;
+        }
+
+        .event-description {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #495057;
+            margin: 30px 0;
+        }
+
+        .feature-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 30px 0;
+            box-shadow: 0 8px 24px rgba(255, 200, 0, 0.15);
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .event-cta-section {
+            background: linear-gradient(135deg, #ffc800 0%, #ffb700 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+
+        .event-cta-section h2 {
+            color: #212529;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .event-cta-section p {
+            color: #212529;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .event-cta-button {
+            background-color: #212529;
+            color: #ffc800;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-cta-button:hover {
+            background-color: #495057;
+            transform: translateY(-3px);
+            color: #ffc800;
+        }
+
+        .section-heading {
+            position: relative;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #212529;
+            margin: 0;
+        }
+
+        .section-heading::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #ffc800;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .highlight {
+            color: #ffc800;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(255, 200, 0, 0.1) 0%, rgba(255, 183, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 200, 0, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            color: #ffc800;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .info-box-content {
+            color: #495057;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="font-family: 'Tangerine', cursive; font-weight: 300; color: goldenrod; font-size: 1.5rem; text-transform: none;">
+                Kannapolis Ukulele Club</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html#vision">Vision</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="volunteer.html">Volunteer</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="baseball-hero">
+        <div class="container">
+            <h1>Music at the Ballpark</h1>
+            <p class="subtitle">A night of music, baseball, and community spirit</p>
+        </div>
+    </section>
+
+    <!-- Event Details Section -->
+    <section class="event-details-section">
+        <div class="container">
+            <div class="event-details-container">
+                <div class="section-heading">
+                    <h2>Experience the Magic <span class="highlight">Under the Lights</span></h2>
+                </div>
+
+                <div class="event-info-grid">
+                    <div class="info-item">
+                        <div class="info-item-label"><i class="fas fa-calendar"></i> Date</div>
+                        <div class="info-item-value">August 1st, 2026</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label"><i class="fas fa-clock"></i> Time</div>
+                        <div class="info-item-value">7:00 PM - 8:00 PM</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label"><i class="fas fa-map-marker-alt"></i> Location</div>
+                        <div class="info-item-value">Atrium Health Ballpark</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label"><i class="fas fa-ticket-alt"></i> Admission</div>
+                        <div class="info-item-value">Ticketed Event</div>
+                    </div>
+                </div>
+
+                <div class="feature-image">
+                    <img src="assets/img/stadium-unsplash.jpg" alt="Atrium Health Ballpark" style="height: 400px; object-fit: cover;">
+                </div>
+
+                <div class="event-description">
+                    <p>
+                        Take us out to the ballgame! The Kannapolis Ukulele Club is heading to Atrium Health Ballpark to perform for our very own Kannapolis Cannon Ballers. Join us for an unforgettable evening of live music, hometown baseball, and community spirit at the stadium. Our young musicians have been preparing an exciting repertoire specifically tailored for the outdoor acoustics and energy of a baseball game atmosphere.
+                    </p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title"><i class="fas fa-info-circle"></i> Event Information</div>
+                    <div class="info-box-content">
+                        <p><strong>Gates Open:</strong> 5:30 PM - Arrive early for parking and concessions</p>
+                        <p><strong>Performance Time:</strong> 7:00 PM - 8:00 PM</p>
+                        <p><strong>Parking:</strong> Main stadium lot opens at 5:00 PM. Standard parking fees apply.</p>
+                        <p><strong>What to Bring:</strong> No outside beverages or food in stadium, but concessions will be available</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title"><i class="fas fa-cloud"></i> Inclement Weather</div>
+                    <div class="info-box-content">
+                        <p>In case of severe weather, check back here for real-time rain date updates. We will reschedule if necessary to ensure the safety and comfort of our performers and audience.</p>
+                    </div>
+                </div>
+
+                <div class="event-cta-section">
+                    <h2>Ready to Join Us at the Ballpark?</h2>
+                    <p>Get your tickets now and be part of an unforgettable evening of live music and baseball!</p>
+                    <a href="https://www.gofevo.com/event/Kannapolisukelele2" class="event-cta-button">Get Your Tickets</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">
+                    <p>Copyright &copy; Kannapolis Ukulele Club 2026
+                        <br> EIN : 33-4880943
+                        <br>501(c)(3) status is currently in progress.</p>
+                </div>
+
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/kannapolisuke" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.tiktok.com/@kannapolisukeclub" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.youtube.com/@Ukuleleclubkannapolis" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@ const fallbackEvents = [
     {
         id: 1,
         title: "Weekly Jam Session",
-        date: new Date(2026, 4, 8),
+        date: new Date(2026, 6,26),
         startTime: "6:00 PM",
         endTime: "7:00 PM",
         location: "Kellswater Bridge Pavilion",
@@ -12,7 +12,7 @@ const fallbackEvents = [
     {
         id: 1,
         title: "Weekly Jam Session",
-        date: new Date(2026, 4, 15),
+        date: new Date(2026, 6, 7),
         startTime: "6:00 PM",
         endTime: "7:00 PM",
         location: "Kellswater Bridge Pavilion",
@@ -22,7 +22,7 @@ const fallbackEvents = [
     {
         id: 1,
         title: "Weekly Jam Session",
-        date: new Date(2026, 4, 22),
+        date: new Date(2026, 6, 10),
         startTime: "6:00 PM",
         endTime: "7:00 PM",
         location: "Kellswater Bridge Pavilion",
@@ -32,7 +32,7 @@ const fallbackEvents = [
     {
         id: 1,
         title: "Weekly Jam Session",
-        date: new Date(2026, 4, 29),
+        date: new Date(2026, 6, 14),
         startTime: "6:00 PM",
         endTime: "7:00 PM",
         location: "Kellswater Bridge Pavilion",
