@@ -17,201 +17,285 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <style>
-        /* Baseball Event Page Specific Styles */
+        :root {
+            --sunshine: #ffd54f;
+            --candy: #ff7a59;
+            --ink: #1f2430;
+            --cream: #fffdf5;
+            --sage: #6f8f6f;
+        }
+
+        body {
+            position: relative;
+            overflow-x: hidden;
+            background: linear-gradient(145deg, #fffdf5 0%, #fff5cf 55%, #ffe8b3 100%);
+            color: var(--ink);
+        }
+
         .baseball-hero {
-            background: linear-gradient(135deg, #ffc800 0%, #ffb700 100%);
-            color: #212529;
-            padding: 80px 0 60px;
             margin-top: 56px;
-            text-align: center;
+            padding: 90px 0 70px;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at top left, rgba(255, 122, 89, 0.28), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(255, 213, 79, 0.42), transparent 32%),
+                linear-gradient(135deg, #1f2430 0%, #2f3f5d 40%, #4b5d8a 100%);
+            color: white;
+        }
+
+        .baseball-hero::before,
+        .baseball-hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            filter: blur(0px);
+            animation: drift 10s ease-in-out infinite alternate;
+        }
+
+        .baseball-hero::before {
+            width: 240px;
+            height: 240px;
+            top: -50px;
+            right: -20px;
+        }
+
+        .baseball-hero::after {
+            width: 180px;
+            height: 180px;
+            bottom: -40px;
+            left: -30px;
+            animation-delay: 2s;
         }
 
         .baseball-hero h1 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Tangerine', cursive;
             font-weight: 700;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #212529;
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 12px;
+            color: #fff2b8;
+            letter-spacing: 0.5px;
         }
 
         .baseball-hero .subtitle {
-            font-size: 1.3rem;
-            font-weight: 300;
-            margin-bottom: 0;
-            font-style: italic;
-            color: #212529;
-        }
-
-        @media (max-width: 768px) {
-            .baseball-hero h1 {
-                font-size: 1.8rem;
-                padding: 0 15px;
-            }
-            .baseball-hero {
-                padding: 60px 0 40px;
-            }
-        }
-
-        /* Event Details Section */
-        .event-details-section {
-            padding: 60px 0;
-            background: #f8f9fa;
-        }
-
-        .event-details-container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            padding: 40px;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .event-details-container {
-                padding: 25px;
-            }
-        }
-
-        .event-info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 30px 0;
-        }
-
-        .info-item {
-            text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            border-left: 4px solid #ffc800;
-        }
-
-        .info-item-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #6c757d;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .info-item-value {
             font-size: 1.2rem;
-            font-weight: 600;
-            color: #212529;
-        }
-
-        .event-description {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #495057;
-            margin: 30px 0;
-        }
-
-        .feature-image {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            margin: 30px 0;
-            box-shadow: 0 8px 24px rgba(255, 200, 0, 0.15);
-        }
-
-        .feature-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .event-cta-section {
-            background: linear-gradient(135deg, #ffc800 0%, #ffb700 100%);
-            padding: 60px 20px;
-            text-align: center;
-            border-radius: 12px;
-            margin-top: 40px;
-        }
-
-        .event-cta-section h2 {
-            color: #212529;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .event-cta-section p {
-            color: #212529;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            max-width: 600px;
+            font-weight: 400;
+            margin-bottom: 28px;
+            color: #ffeec9;
+            max-width: 660px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .event-cta-button {
-            background-color: #212529;
-            color: #ffc800;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 700;
         }
 
-        .event-cta-button:hover {
-            background-color: #495057;
-            transform: translateY(-3px);
-            color: #ffc800;
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .event-cta-button,
+        .secondary-cta {
+            display: inline-block;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .event-cta-button {
+            background: var(--sunshine);
+            color: var(--ink);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .secondary-cta {
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .event-cta-button:hover,
+        .secondary-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        .event-details-section {
+            padding: 72px 0 90px;
+            background: linear-gradient(180deg, #fffef8 0%, #fff6d6 100%);
+        }
+
+        .event-details-container {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(31, 36, 48, 0.08);
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(31, 36, 48, 0.14);
+            padding: 38px;
+            margin-top: 30px;
+            backdrop-filter: blur(2px);
         }
 
         .section-heading {
-            position: relative;
-            text-align: center;
-            margin-bottom: 40px;
+            text-align: left;
+            margin-bottom: 28px;
         }
 
         .section-heading h2 {
-            font-size: 2rem;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700;
-            color: #212529;
+            color: var(--ink);
             margin: 0;
         }
 
-        .section-heading::after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: #ffc800;
-            margin: 15px auto 0;
-            border-radius: 2px;
+        .section-heading p {
+            margin-top: 10px;
+            color: #5d6472;
+            max-width: 720px;
+            font-size: 1.02rem;
+            line-height: 1.7;
         }
 
         .highlight {
-            color: #ffc800;
+            color: var(--candy);
+        }
+
+        .event-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .info-item {
+            text-align: left;
+            padding: 18px 20px;
+            background: linear-gradient(135deg, #fffdf7 0%, #fff3c5 100%);
+            border: 1px solid rgba(255, 213, 79, 0.35);
+            border-radius: 16px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        .info-item-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #7b6e3e;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            margin-bottom: 8px;
+        }
+
+        .info-item-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 24px;
+            align-items: center;
+            margin: 30px 0 24px;
+        }
+
+        .feature-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(31, 36, 48, 0.16);
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .feature-copy {
+            background: linear-gradient(135deg, #fff8e0 0%, #ffe8b3 100%);
+            padding: 28px;
+            border-radius: 20px;
+        }
+
+        .strip-label {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 122, 89, 0.16);
+            color: #c3562b;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .feature-copy h3 {
+            margin-bottom: 10px;
+            color: var(--ink);
+        }
+
+        .feature-copy p {
+            color: #4e5664;
+            line-height: 1.7;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 22px;
+            color: var(--ink);
+        }
+
+        .feature-list li::before {
+            content: "♫";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--candy);
         }
 
         .info-box {
-            background: linear-gradient(135deg, rgba(255, 200, 0, 0.1) 0%, rgba(255, 183, 0, 0.05) 100%);
-            border: 1px solid rgba(255, 200, 0, 0.3);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
+            background: linear-gradient(135deg, rgba(31, 36, 48, 0.06) 0%, rgba(255, 122, 89, 0.08) 100%);
+            border: none;
+            border-radius: 18px;
+            padding: 24px;
+            margin: 20px 0;
         }
 
         .info-box-title {
             font-weight: 700;
-            color: #ffc800;
+            color: var(--candy);
             text-transform: uppercase;
             font-size: 0.9rem;
-            letter-spacing: 1px;
+            letter-spacing: 0.16em;
             margin-bottom: 10px;
         }
 
@@ -220,9 +304,85 @@
             line-height: 1.7;
         }
 
-        body {
+        .video-section {
+            margin-top: 34px;
+            padding-top: 8px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 20px;
+            padding: 14px;
+            box-shadow: 0 20px 35px rgba(31, 36, 48, 0.08);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            min-height: 320px;
+            border: 0;
+            border-radius: 14px;
+            background: #000;
+        }
+
+        .video-caption {
+            padding: 12px 4px 4px;
+        }
+
+        .video-caption h3 {
+            font-size: 1.08rem;
+            margin-bottom: 6px;
+            color: var(--ink);
+        }
+
+        .video-caption p {
+            margin: 0;
+            color: #647085;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .event-cta-section {
+            background: linear-gradient(135deg, #1f2430 0%, #33415b 100%);
+            color: white;
+            border-radius: 22px;
+            padding: 48px 24px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 25px 40px rgba(31, 36, 48, 0.16);
+        }
+
+        .event-cta-section h2 {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .event-cta-section p {
+            color: #f8e6b2;
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .baseball-hero,
+        .event-details-section,
+        footer {
             position: relative;
-            overflow-x: hidden;
+            z-index: 2;
+        }
+
+        .footer {
+            background: #1f2430;
+            color: #f9f0cb;
         }
 
         .fireworks {
@@ -264,11 +424,9 @@
             opacity: 0;
         }
 
-        .baseball-hero,
-        .event-details-section,
-        footer {
-            position: relative;
-            z-index: 2;
+        @keyframes drift {
+            from { transform: translate3d(0, 0, 0) scale(1); }
+            to { transform: translate3d(10px, -12px, 0) scale(1.04); }
         }
 
         @keyframes burst-glow {
@@ -281,6 +439,42 @@
             0% { transform: translate(0, 0) scale(var(--scale, 1)); opacity: 0; }
             8% { opacity: 1; }
             100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+        }
+
+        @media (max-width: 992px) {
+            .feature-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .baseball-hero {
+                padding: 72px 0 56px;
+            }
+
+            .event-details-container {
+                padding: 24px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .event-cta-button,
+            .secondary-cta {
+                width: 100%;
+                max-width: 260px;
+                text-align: center;
+            }
+
+            .video-card iframe {
+                min-height: 280px;
+            }
         }
     </style>
 </head>
@@ -310,9 +504,14 @@
 
     <!-- Hero Section -->
     <section class="baseball-hero">
-        <div class="container">
+        <div class="container text-center">
+            <div class="hero-badge"><i class="fas fa-music"></i> Live music • stadium lights • hometown joy</div>
             <h1>Music at the Ballpark</h1>
-            <p class="subtitle">A night of music, baseball, and community spirit</p>
+            <p class="subtitle">A bright, playful evening of ukuleles, cheering crowds, and baseball energy that feels like a festival under the lights.</p>
+            <div class="hero-actions">
+                <a href="https://www.gofevo.com/event/Kannapolisukelele2" class="event-cta-button">Grab Your Tickets</a>
+                <a href="#videos" class="secondary-cta">Watch the Vibe</a>
+            </div>
         </div>
     </section>
 
@@ -321,7 +520,8 @@
         <div class="container">
             <div class="event-details-container">
                 <div class="section-heading">
-                    <h2>Experience the Magic <span class="highlight">Under the Lights</span></h2>
+                    <h2>Bring your biggest cheers for a night that feels like a <span class="highlight">summer soundtrack</span></h2>
+                    <p>The Kannapolis Ukulele Club is bringing joyful live music to the ballpark with a fun, family-friendly atmosphere full of bright melodies and hometown spirit.</p>
                 </div>
 
                 <div class="event-info-grid">
@@ -343,14 +543,20 @@
                     </div>
                 </div>
 
-                <div class="feature-image">
-                    <img src="assets/img/stadium-unsplash.jpg" alt="Atrium Health Ballpark" style="height: 400px; object-fit: cover;">
-                </div>
-
-                <div class="event-description">
-                    <p>
-                        Take us out to the ballgame! The Kannapolis Ukulele Club is heading to Atrium Health Ballpark to perform for our very own Kannapolis Cannon Ballers. Join us for an unforgettable evening of live music, hometown baseball, and community spirit at the stadium. Our young musicians have been preparing an exciting repertoire specifically tailored for the outdoor acoustics and energy of a baseball game atmosphere.
-                    </p>
+                <div class="feature-showcase">
+                    <div class="feature-image">
+                        <img src="assets/img/stadium-unsplash.jpg" alt="Atrium Health Ballpark" />
+                    </div>
+                    <div class="feature-copy">
+                        <div class="strip-label">What makes this night special</div>
+                        <h3>From the first strum to the final sparkler</h3>
+                        <p>Take us out to the ballgame! Our young musicians are preparing a set designed for the open-air energy of the stadium, combining feel-good tunes with the excitement of a summer night at the ballpark.</p>
+                        <ul class="feature-list">
+                            <li>High-energy performances that fit the stadium atmosphere</li>
+                            <li>Family-friendly fun with music, baseball, and community pride</li>
+                            <li>A fireworks finale to close out the evening in style</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="info-box">
@@ -359,7 +565,7 @@
                         <p><strong>Gates Open:</strong> 6:00 PM - Arrive early for parking and concessions</p>
                         <p><strong>Performance Time:</strong> 7:00 PM - 8:00 PM</p>
                         <p><strong>Parking:</strong> Main stadium lot opens at 5:00 PM. Standard parking fees apply.</p>
-                        <p><strong>What to Bring:</strong> No outside beverages or food in stadium, but concessions will be available</p>
+                        <p><strong>What to Bring:</strong> No outside beverages or food in stadium, but concessions will be available.</p>
                     </div>
                 </div>
 
@@ -370,9 +576,32 @@
                     </div>
                 </div>
 
+                <div class="video-section" id="videos">
+                    <div class="section-heading">
+                        <h2>See the <span class="highlight">music and movement</span> behind the moment</h2>
+                        <p>These quick clips capture the energy, smiles, and rhythm that make this event so special.</p>
+                    </div>
+                    <div class="video-grid">
+                        <article class="video-card">
+                            <iframe src="https://www.instagram.com/reel/Da5YRmwuWs7/embed" title="Instagram reel 1" loading="lazy" allowfullscreen></iframe>
+                            <div class="video-caption">
+                                <h3>Playful performance energy</h3>
+                                <p>A glimpse of the upbeat spirit and musical joy that will light up the ballpark.</p>
+                            </div>
+                        </article>
+                        <article class="video-card">
+                            <iframe src="https://www.instagram.com/reel/DaTC6otODDb/embed" title="Instagram reel 2" loading="lazy" allowfullscreen></iframe>
+                            <div class="video-caption">
+                                <h3>Big smiles and bright rhythm</h3>
+                                <p>Another look at the excitement, movement, and community vibe behind the event.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
                 <div class="event-cta-section">
-                    <h2>Ready to Join Us at the Ballpark?</h2>
-                    <p>Get your tickets now and be part of an unforgettable evening of live music and baseball!</p>
+                    <h2>Ready to join the fun?</h2>
+                    <p>Get your tickets now and be part of an unforgettable evening of live music, baseball, and big community energy.</p>
                     <a href="https://www.gofevo.com/event/Kannapolisukelele2" class="event-cta-button">Get Your Tickets</a>
                 </div>
             </div>
