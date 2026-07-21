@@ -311,23 +311,30 @@
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
+            align-items: start;
         }
 
         .video-card {
-            background: white;
+            background: linear-gradient(180deg, #ffffff 0%, #fcf7e8 100%);
+            border: 1px solid #ece3c9;
             border-radius: 20px;
-            padding: 14px;
-            box-shadow: 0 20px 35px rgba(31, 36, 48, 0.08);
+            padding: 12px;
+            box-shadow: 0 16px 30px rgba(31, 36, 48, 0.07);
+            max-width: 440px;
+            margin: 0 auto;
+            overflow: hidden;
         }
 
         .video-card iframe {
             width: 100%;
-            min-height: 320px;
+            height: 560px;
+            max-height: 70vh;
             border: 0;
             border-radius: 14px;
-            background: #000;
+            background: #f3f1ea;
+            display: block;
         }
 
         .video-caption {
@@ -473,7 +480,7 @@
             }
 
             .video-card iframe {
-                min-height: 280px;
+                height: 480px;
             }
         }
     </style>
