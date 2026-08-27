@@ -65,6 +65,32 @@
                 line-height: 1.6;
                 opacity: 0.95;
             }
+
+            /* Feature icons/images (responsive) */
+            .feature-icon {
+                width: 12rem;
+                height: 12rem;
+                border-radius: 50%;
+                display: block;
+                margin: 0 auto 15px;
+                object-fit: cover;
+            }
+
+            .feature-fa-stack {
+                font-size: 12rem;
+                display: inline-block;
+                line-height: 1;
+            }
+
+            @media (max-width: 992px) {
+                .feature-icon { width: 8rem; height: 8rem; }
+                .feature-fa-stack { font-size: 8rem; }
+            }
+
+            @media (max-width: 576px) {
+                .feature-icon { width: 5rem; height: 5rem; }
+                .feature-fa-stack { font-size: 5rem; }
+            }
         </style>
     </head>
     <body id="page-top">
@@ -80,10 +106,9 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#vision">Vision</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="volunteer.html">Volunteer</a></li>
+                        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
                     </ul>
                 </div>
             </div>
@@ -108,7 +133,7 @@
             
             <!-- Content -->
             <div class="container">
-                <div class="masthead-subheading">Welcome To Our Club!</div>
+                <div class="masthead-subheading">We make practice social!</div>
                 <div class="masthead-heading text-uppercase">strum. connect. grow. lead.</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="#vision">Tell Me More</a>
             </div>
@@ -117,31 +142,35 @@
         <section class="page-section" id="vision">
             <div class="container">
                 <div class="text-center">
+
+                     <h2 class="section-heading text-uppercase">The Challenge</h2>
+                    <h3 class="section-subheading text-muted"> Learning music doesn’t happen in a one-hour lesson each week.
+                       Young musicians spend most of their musical journey between lessons, practicing what they have learned. 
+                       But practicing alone can sometimes feel repetitive, lonely, or difficult to stay motivated.
+                    </h3>
+
                     <h2 class="section-heading text-uppercase">Vision</h2>
-                    <h3 class="section-subheading text-muted"> Our mission is to inspire and empower youth through the joy of music by fostering fun environments within small neighborhoods spaces where young people learn, build lasting friendships, and grow in confidence through creative expression and leadership development. </h3>
+                    <h3 class="section-subheading text-muted"> 
+                        We provide a social and encouraging space where young people can come together and practice through playing. 
+                        Those who take formal music lessons can use the club as a place to reinforce what they are learning, gain more playing experience, and enjoy music alongside other young musicians.
+                        For young people who are not yet taking music lessons, the club can also be a first spark by giving them a chance to try instruments, play with others, and experience the joy of making music, we hope to inspire a deeper interest that may lead them to pursue further music education.
+
+                    </h3>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-music fa-stack-1x fa-inverse"></i>
-                        </span>
+                        <img src="assets/img/learn.JPG" alt="Learn" class="feature-icon" loading="lazy" decoding="async" width="192" height="192" />
                         <h4 class="my-3">Discover the Joy of Music</h4>
                         <p class="text-muted">Learn to play the ukulele in a fun, welcoming space that sparks creativity and a lifelong love for music—no experience needed!.</p>
                     </div>
                     <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-people-group fa-stack-1x fa-inverse"></i>
-                        </span>
+                     <img src="assets/img/connect.jpg" alt="Connect" class="feature-icon" loading="lazy" decoding="async" width="192" height="192" />
+
                         <h4 class="my-3">Connect Through Community</h4>
                         <p class="text-muted">Make lasting friendships and be part of a supportive community where youth grow together, inspire one another, and make a positive impact.</p>
                     </div>
                     <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-user-graduate fa-stack-1x fa-inverse"></i>
-                        </span>
+                       <img src="assets/img/grow.jpeg" alt="Connect" class="feature-icon" />
                         <h4 class="my-3">Grow as a Leader</h4>
                         <p class="text-muted">Build confidence and develop leadership skills through group activities, performances, and collaborative projects designed to empower every young voice.</p>
                     </div>
@@ -155,53 +184,6 @@
 
             <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Participation in the Ukulele Club is completely <b>free</b>. Members are encouraged to bring their own ukuleles, but are also welcome to bring other instruments of their choice to contribute to a diverse and inclusive musical experience.</p></div>
         </div>
-        <!-- Team-->
-        <section class="page-section bg-light" id="team">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Meet Our Team</h2>
-                    <h3 class="section-subheading text-muted">Lead. Teach. Inspire. Join Our Youth Leadership Team <a href="volunteer.html" style="color: goldenrod; text-decoration: underline;"> here </a></h3>
-                    
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/lani.jpg" alt="..." />
-                            <h4>Kapiolani (Lani) M. <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/ArtByLaniMuta/" aria-label="Lani Facebook Profile"><i class="fab fa-facebook-f"></i></a></h4>
-                            
-                            <p class="large text-muted"> A class of 2032, multi-instrumentalist in the making! Currently learning Piano,Violin and Ukulele. Passionate about community and friendship with a curious mind and a love for science and other arts.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/Chloe.jpg" alt="..." />
-                            <h4>Chloe</h4>
-                
-                            <p class="large text-muted"> Passionate about music and enjoys singing, dancing and playing instruments. She is an avid softball player and loves learning new skills and meeting new friends </p>
-                          </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/MitanshiP.jpg" alt="..." />
-                            <h4>Mitanshi Parsode</h4>
-                           
-                            <p class="large text-muted">A dedicated high school student with a strong passion for music, having played the violin for the past six years. Enjoys volunteering and actively seeks opportunities to give back to the community. In addition to music, has a love for photography and stays active by playing volleyball.</p>
-                          </div>
-                    </div>
-
-
-
-                  </div>
-                <div class="row mt-5">
-                    <div class="col-lg-12 text-center p-5" style="background-color: #343a40; border-radius: 10px;">
-                        <h3 class="section-subheading text-white fw-bold mb-3">Come join us!</h3>
-                        <p class="text-white" style="font-size: 1.1rem;">Whether you're a music student looking to learn, interested in mentoring and leading younger musicians, earning service hours, or simply joining for the joy of music, <a href="volunteer.html" style="color: goldenrod; text-decoration: underline;">complete the form</a> and become part of our Youth Leadership Team.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!-- timeline-->
         <section class="page-section" id="timeline">
             <div class="container">
@@ -219,7 +201,14 @@
                                 </h4>
                                 <h4 class="subheading">Our Humble Beginnings</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Originating from a desire to  break the monotony of  practicing music alone and  making it more engaging, Kapiolani invited a few friends to collaborate. Starting with a small group of three, the community gradually expanded, bringing together individuals who share a passion for making music together.</p></div>
+                            <div class="timeline-body"><p class="text-muted">
+Started With a Simple Idea.
+What if music practice didn’t always have to happen alone?
+In 2024, what began as a small group of three young people getting together to make music has grown into a community of young musicians.
+The idea was simple: practice becomes more enjoyable when you have people to practice with.
+Today, the club continues to grow as a place where young people can learn from one another, gain confidence through playing together, and discover that music can be both personal and social.
+
+                            </p></div>
                         </div>
                     </li>
                 </ul>
@@ -364,8 +353,9 @@
                             </div>
                             <div class="info-title">Questions?</div>
                             <div class="info-text">
-                                <p>Reach out to us anytime:</p>
+                                <p>Reach out to us:</p>
                                 <p style="margin: 10px 0;">
+                                      <i class="fas fa-user"></i> <strong>Grace Mtei</strong><br>
                                     <i class="fas fa-phone"></i> <strong>470-394-7932</strong><br>
                                     <i class="fas fa-envelope"></i> <strong>info@ukeclub.org</strong>
                                 </p>
