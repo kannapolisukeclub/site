@@ -942,12 +942,12 @@
         </div>
     </section>
 
-    <!-- Upcoming Events Section -->
+    <!-- Events Section -->
     <section class="calendar-section">
         <div class="container">
             <div class="section-heading">
-                <h2 class="section-heading text-uppercase">Upcoming Events</h2>
-                <h3 class="section-subheading text-muted">Join us for jam sessions, workshops, and performances</h3>
+                <h2 class="section-heading text-uppercase">Events</h2>
+                <h3 class="section-subheading text-muted">Explore past and upcoming jam sessions, workshops, and performances</h3>
             </div>
 
             <div id="events-container" class="events-list-container">
@@ -957,8 +957,8 @@
             <div id="no-events-message" class="no-events-message" style="display: none;">
                 <div class="empty-state">
                     <div class="empty-state-icon">🎶</div>
-                    <h3>No upcoming events</h3>
-                    <p>Check back soon for our next session!</p>
+                    <h3>No events available</h3>
+                    <p>Check back soon for event updates!</p>
                 </div>
             </div>
 
@@ -1106,15 +1106,16 @@
         return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDateStr}/${endDateStr}&location=${location}&details=${description}`;
     }
 
-    // Get upcoming events (today and future)
-    function getUpcomingEvents() {
+    // Get all events, ordered chronologically
+    function getAllEvents() {
+        return eventsData
+            .sort((a, b) => a.date - b.date);
+    }
+
+    function isUpcomingEvent(event) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-
-        return eventsData
-            .filter(event => event.date >= today)
-            .sort((a, b) => a.date - b.date)
-            .slice(0, 10);
+        return event.date >= today;
     }
 
     // Group events by month
@@ -1178,19 +1179,19 @@
 
         if (!container) return;
 
-        const upcomingEvents = getUpcomingEvents();
+        const allEvents = getAllEvents();
 
-        if (upcomingEvents.length === 0) {
+        if (allEvents.length === 0) {
             container.style.display = 'none';
             noEventsMsg.style.display = 'block';
             return;
         }
 
         // Group by month
-        const groupedEvents = groupEventsByMonth(upcomingEvents);
+        const groupedEvents = groupEventsByMonth(allEvents);
         let html = '';
 
-        let isFirst = true;
+        let hasNextEvent = false;
         Object.keys(groupedEvents).forEach(monthKey => {
             const group = groupedEvents[monthKey];
             html += `
@@ -1200,9 +1201,10 @@
                     </div>
             `;
 
-            group.events.forEach((event, index) => {
-                html += createEventCard(event, isFirst);
-                isFirst = false;
+            group.events.forEach(event => {
+                const isNextEvent = !hasNextEvent && isUpcomingEvent(event);
+                html += createEventCard(event, isNextEvent);
+                hasNextEvent = hasNextEvent || isNextEvent;
             });
 
             html += '</div>';
